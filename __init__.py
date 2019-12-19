@@ -32,11 +32,14 @@ def run_instance(settings):
                 data = markdown(f.decoded_content)
                 htmldoc = repo.get_contents(settings['site']['path-to-index']).decoded_content
                 soup = BeautifulSoup(htmldoc,'html.parser')
-                post_div_tag = soup.select(settings['site']['post-div'])
+                post_div_tag = soup.select(settings['site']['post-div'])[0]
                 post = soup.new_tag('div',attrs={'class':'post-box'})
-                post.append(NavigableString(data))
-                post_div_tag.append(post)
-                print(soup.prettify())
+                post.string = data
+                post_div_tag.insert(0,post)
+                unpretty = post_div_tag.prettify()
+                unpretty = unpretty.replace('&lt;','<')
+                unpretty = unpretty.replace('&gt;','>')
+                print(unpretty)
                 logs['logs'].append(f.name)
 
         time.sleep(settings['check-interval'])
