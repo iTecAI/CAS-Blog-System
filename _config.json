@@ -1,4 +1,13 @@
 {
-    "username":"USERNAME",
-    "password":"PASSWORD"
+    "instances":[
+        {
+            "username":"",
+            "password":"",
+            "repo-name":"",
+            "site":{
+                "path-to-index":"",
+                "md-dir":""
+            }
+        }
+    ]
 }
