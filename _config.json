@@ -6,6 +6,7 @@
             "password":"",
             "token":null,
             "repo-name":"",
+            "check-interval":1,
             "site":{
                 "path-to-index":"",
                 "md-dir":""
