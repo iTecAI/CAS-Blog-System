@@ -36,7 +36,7 @@ def run_instance(settings):
                 post = soup.new_tag('div',attrs={'class':'post-box'})
                 post.string = data
                 post_div_tag.insert(0,post)
-                unpretty = post_div_tag.prettify()
+                unpretty = soup.prettify()
                 unpretty = unpretty.replace('&lt;','<')
                 unpretty = unpretty.replace('&gt;','>')
                 print(unpretty)
