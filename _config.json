@@ -9,7 +9,8 @@
             "check-interval":1,
             "site":{
                 "path-to-index":"",
-                "md-dir":""
+                "md-dir":"",
+                "post-div":""
             }
         }
     ]
