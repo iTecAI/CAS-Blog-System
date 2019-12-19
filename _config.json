@@ -1,8 +1,10 @@
 {
     "instances":[
         {
+            "name":"",
             "username":"",
             "password":"",
+            "token":null,
             "repo-name":"",
             "site":{
                 "path-to-index":"",

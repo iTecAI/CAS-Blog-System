@@ -42,8 +42,9 @@ class Document:
         return _str
 
 class CSS:
-    def __init__(self,Dict={}):
+    def __init__(self,Dict={},inline=False):
         self.dict = Dict
+        self.inline = inline
     def __getitem__(self,item):
         return self.dict[item]
     def add_sel(self,sel):
@@ -56,9 +57,13 @@ class CSS:
         del self.dict[key][property]
     def __str__(self):
         ret = ''
-        for k in self.dict.keys():
-            ret += k + ' {'
-            for p in self.dict[k].keys():
-                ret += '\n\t' + p + ': ' + self.dict[k][p] + ';'
-            ret += '\t\n}'
+        if self.inline:
+            for k in self.dict.keys():
+                ret += k+': '+self.dict[k] + ';'
+        else:
+            for k in self.dict.keys():
+                ret += k + ' {'
+                for p in self.dict[k].keys():
+                    ret += '\n\t' + p + ': ' + self.dict[k][p] + ';'
+                ret += '\t\n}'
         return ret
